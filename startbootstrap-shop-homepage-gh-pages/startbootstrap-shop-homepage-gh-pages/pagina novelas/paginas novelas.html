@@ -12,6 +12,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <style>
+            .ui-autocomplete {
+                max-height: 200px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                z-index: 1000; /* Ensure it's above other elements */
+            }
+        </style>      
     </head>
     <body>
         <!-- Navigation-->
@@ -33,6 +44,9 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="me-2">
+                        <input type="text" id="search-input" class="form-control" placeholder="Search..." style="width: 200px;">
+                    </div> 
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
@@ -80,7 +94,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="assets/portadasd%20novelas/The%20Odyssey%20(Barnes%20&%20Noble%20Collectible%20Editions)_%20(Barnes%20&%20Noble%20Collectible%20Classics_%20Flexi%20Edition).png" alt="The Odyssey Book Cover" />                     <!-- Product details-->
+                            <img class="card-img-top" src="assets/portadasd%20novelas/The%20Odyssey%20.png" alt="The Odyssey Book Cover" />                     <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
@@ -199,7 +213,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="assets/portadasd%20novelas/Don%20Quixote%20Vintage%20Book%20Cover%20%23graphicdesign%20%23cover%20%23book%20%23donquixote%20%23vintage.png" alt="Don Quixote Vintage Book Cover" />
+                            <img class="card-img-top" src="assets/portadasd%20novelas/Don%20Quixote%20Vintage%20Book%20Cover%20.png" alt="Don Quixote Vintage Book Cover" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -261,5 +275,23 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            $(function() {
+                var availableTags = [
+                    "Enciclopedia Caracol",
+                    "Special Item",
+                    "Sale Item",
+                    "Popular Item",
+                    "Final Issue",
+                    "Fancy Product",
+                    "Rare Item",
+                    "Recommended Item",
+                    "Invincible"
+                ];
+                $("#search-input").autocomplete({
+                    source: availableTags
+                });
+            });
+        </script>
     </body>
 </html>
