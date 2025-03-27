@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shopping Cart - Alexandria's Bookshop</title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+      </head>
+      <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+              <i class="fas fa-book-open me-2"></i>Alexandria's Bookshop
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownShop"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Shop
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+                    <li><a class="dropdown-item" href="#">All Products</a></li>
+                    <li><a class="dropdown-item" href="#">Popular Products</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link position-relative" href="#">
+                    <i class="fas fa-shopping-cart fs-5"></i>
+                    <span
+                      id="cart-item-count-badge"
+                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    >
+                      2
+                      <span class="visually-hidden">items in cart</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="container cart-container py-5">
+          <div class="cart-header border-bottom pb-3 mb-4">
+            <h1 class="fw-light">Your Shopping Cart</h1>
+          </div>
+
+          <div class="row">
+            <!-- Cart Items Column -->
+            <div class="col-lg-8">
+              <div id="cart-items-list">
+                <!-- Cart Item 1: Book -->
+                <div class="card cart-item mb-3 shadow-sm" data-item-id="book-1">
+                  <div class="row g-0">
+                    <div class="col-md-3 d-flex align-items-center justify-content-center p-2">
+                      <img
+                        src="https://via.placeholder.com/150x180/e3f2fd/34495e?text=Book+Cover+1"
+                        class="img-fluid rounded cart-item-image"
+                        alt="The Midnight Library"
+                      />
+                    </div>
+                    <div class="col-md-9">
+                      <div class="card-body d-flex flex-column h-100">
+                        <h5 class="card-title cart-item-title mb-1">
+                          The Midnight Library
+                        </h5>
+                        <small class="text-muted mb-2">Author: Matt Haig, Format: Hardcover</small>
+                        <div class="cart-item-price fw-bold text-success mb-3">
+                          $26.00
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                          <label for="quantity-1" class="form-label me-2 mb-0"
+                            >Qty:</label
+                          >
+                          <div class="input-group quantity-selector" style="max-width: 120px;">
+                            <button
+                              class="btn btn-outline-secondary quantity-btn decrease-qty"
+                              type="button"
+                            >
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              class="form-control text-center quantity-input"
+                              value="1"
+                              min="1"
+                              id="quantity-1"
+                              aria-label="Item quantity"
+                            />
+                            <button
+                              class="btn btn-outline-secondary quantity-btn increase-qty"
+                              type="button"
+                            >
+                              <i class="fas fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="cart-item-actions mt-auto d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-primary save-item">
+                            <i class="far fa-heart me-1"></i> Save for Later
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger remove-item">
+                            <i class="fas fa-trash-alt me-1"></i> Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Cart Item 1 -->
+
+                <!-- Cart Item 2: Book -->
+                <div class="card cart-item mb-3 shadow-sm" data-item-id="book-2">
+                  <div class="row g-0">
+                    <div class="col-md-3 d-flex align-items-center justify-content-center p-2">
+                      <img
+                        src="https://via.placeholder.com/150x180/e8f0fe/2c3e50?text=Book+Cover+2"
+                        class="img-fluid rounded cart-item-image"
+                        alt="Project Hail Mary"
+                      />
+                    </div>
+                    <div class="col-md-9">
+                      <div class="card-body d-flex flex-column h-100">
+                        <h5 class="card-title cart-item-title mb-1">
+                          Project Hail Mary
+                        </h5>
+                        <small class="text-muted mb-2">Author: Andy Weir, Format: Paperback</small>
+                        <div class="cart-item-price fw-bold text-success mb-3">
+                          $17.00
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                          <label for="quantity-2" class="form-label me-2 mb-0"
+                            >Qty:</label
+                          >
+                          <div class="input-group quantity-selector" style="max-width: 120px;">
+                            <button
+                              class="btn btn-outline-secondary quantity-btn decrease-qty"
+                              type="button"
+                            >
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              class="form-control text-center quantity-input"
+                              value="1"
+                              min="1"
+                              id="quantity-2"
+                              aria-label="Item quantity"
+                            />
+                            <button
+                              class="btn btn-outline-secondary quantity-btn increase-qty"
+                              type="button"
+                            >
+                              <i class="fas fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="cart-item-actions mt-auto d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-primary save-item">
+                            <i class="far fa-heart me-1"></i> Save for Later
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger remove-item">
+                            <i class="fas fa-trash-alt me-1"></i> Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Cart Item 2 -->
+              </div>
+
+              <!-- Empty Cart Placeholder (Initially Hidden) -->
+              <div id="empty-cart" class="card text-center p-5 mt-4 shadow-sm d-none">
+                 <div class="empty-cart-icon fs-1 text-muted mb-3">
+                    <i class="fas fa-shopping-cart"></i>
+                 </div>
+                 <h3 class="text-muted fw-light mb-3">Your cart is empty</h3>
+                 <p class="text-secondary mb-4 mx-auto" style="max-width: 25rem;">Looks like you haven't added any books to your cart yet.</p>
+                 <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href="#" class="btn btn-primary">Start Shopping</a>
+                 </div>
+              </div>
+              <!-- End Empty Cart Placeholder -->
+
+              <!-- Continue Shopping Link -->
+              <a href="#" class="continue-shopping text-decoration-none mt-3 d-inline-flex align-items-center">
+                <i class="fas fa-arrow-left me-2"></i> Continue Shopping
+              </a>
+            </div>
+            <!-- End Cart Items Column -->
+
+            <!-- Cart Summary Column -->
+            <div class="col-lg-4">
+              <div class="card cart-summary bg-light p-3 border shadow-sm sticky-top" style="top: 76px;"> <!-- Adjusted top value -->
+                <h4 class="mb-3 fw-light">Order Summary</h4>
+                <div class="summary-row d-flex justify-content-between mb-2">
+                  <span>Subtotal</span>
+                  <!-- Updated Subtotal -->
+                  <span id="summary-subtotal">$43.00</span>
+                </div>
+                <div class="summary-row d-flex justify-content-between mb-2">
+                  <span>Shipping</span>
+                  <!-- Updated Shipping based on logic (43 < 50) -->
+                  <span id="summary-shipping">$5.00</span>
+                </div>
+                <div class="summary-row d-flex justify-content-between mb-2">
+                  <span>Tax (estimated)</span>
+                  <!-- Updated Tax -->
+                  <span id="summary-tax">$3.44</span>
+                </div>
+                <div class="summary-total d-flex justify-content-between fw-bold fs-5 border-top pt-3 mt-3">
+                  <span>Total</span>
+                  <!-- Updated Total -->
+                  <span id="summary-total">$51.44</span>
+                </div>
+                <div class="d-grid mt-4">
+                  <button class="btn btn-primary btn-lg checkout-btn">
+                    Proceed to Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- End Cart Summary Column -->
+          </div>
+
+          <!-- Saved Items Section -->
+          <div class="saved-items card mt-5 p-3 shadow-sm">
+            <h4 class="saved-items-title border-bottom pb-3 mb-3 fw-light">
+              Saved for Later (<span id="saved-count">0</span>)
+            </h4>
+            <div id="saved-items-list">
+              <!-- Saved items will be added here by JS -->
+              <p class="text-muted text-center" id="no-saved-items">You have no saved items.</p>
+            </div>
+          </div>
+          <!-- End Saved Items Section -->
+        </div>
+        <!-- End Cart Container -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+
+        <!-- For Book 1 (The Midnight Library) -->
+          <img
+          src="https://m.media-amazon.com/images/I/81YzHKeWq7L._AC_UF1000,1000_QL80_.jpg" 
+          class="img-fluid rounded cart-item-image"
+          alt="The Midnight Library"
+          />
+
+          <!-- For Book 2 (Project Hail Mary) -->
+          <img
+          src="https://m.media-amazon.com/images/I/71pJkxiJNIL._AC_UF1000,1000_QL80_.jpg"
+          class="img-fluid rounded cart-item-image"
+          alt="Project Hail Mary"
+          />
+      </body>
+    </html>
