@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up / Login Form</title>
+  <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que la ruta al CSS sea correcta -->
+</head>
+<body>
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <!-- Formulario de Sign up -->
+    <div class="signup">
+      <form>
+        <label for="chk" aria-hidden="true">Sign up</label>
+
+        <!-- Nombre y Apellido -->
+        <input type="text" name="firstname" placeholder="Nombre" required="">
+        <input type="text" name="lastname" placeholder="Apellido" required="">
+
+        <!-- Nombre de usuario -->
+        <input type="text" name="username" placeholder="Nombre de usuario" required="">
+
+        <!-- Fecha de nacimiento -->
+        <input type="date" name="birthdate" placeholder="Fecha de nacimiento" required="">
+
+        <!-- Correo electrónico -->
+        <input type="email" name="email" placeholder="Correo electrónico" required="">
+
+        <!-- Contraseña -->
+        <input type="password" name="pswd" placeholder="Contraseña" required="">
+
+        <!-- Validar contraseña -->
+        <input type="password" name="confirm_pswd" placeholder="Validar contraseña" required="">
+
+        <!-- Botón de Sign up -->
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <!-- Formulario de Login -->
+    <div class="login">
+      <form>
+        <label for="chk" aria-hidden="true">Login</label>
+
+        <!-- Correo electrónico -->
+        <input type="email" name="email" placeholder="Correo electrónico" required="">
+
+        <!-- Contraseña -->
+        <input type="password" name="pswd" placeholder="Contraseña" required="">
+
+        <!-- Botón de Login -->
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
