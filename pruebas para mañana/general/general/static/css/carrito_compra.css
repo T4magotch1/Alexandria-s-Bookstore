@@ -1,0 +1,192 @@
+/* Modern Light Theme Shopping Cart with Bootstrap Integration */
+    :root {
+      --primary-light: #e3f2fd;
+      --primary-color: #3498db;
+      --primary-dark: #2980b9;
+      --success-color: #198754; /* Bootstrap success */
+      --danger-color: #dc3545; /* Bootstrap danger */
+      --text-dark: #212529; /* Bootstrap default text */
+      --text-medium: #6c757d; /* Bootstrap secondary text */
+      --text-light: #adb5bd; /* Bootstrap muted text */
+      --border-light: #dee2e6; /* Bootstrap border */
+      --bg-light: #f8f9fa; /* Bootstrap light bg */
+    }
+
+    body {
+      background-color: #f8fafd; /* Slightly off-white background */
+      font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+      padding-top: 56px; /* Add padding to body top to prevent content from hiding behind fixed navbar if you make it fixed */
+    }
+
+    /* Adjust sticky top position considering navbar height */
+    .cart-summary.sticky-top {
+        top: 76px; /* 56px navbar height + 20px desired offset */
+    }
+
+
+    .cart-container {
+      max-width: 1200px;
+    }
+
+    .cart-header h1 {
+      color: var(--text-dark);
+    }
+
+    .cart-item {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--border-light);
+    }
+
+    .cart-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07) !important; /* Slightly stronger hover shadow */
+    }
+
+    .cart-item-image {
+      max-width: 150px; /* Limit image width on larger screens */
+      height: auto; /* Maintain aspect ratio */
+      object-fit: contain; /* Show the whole image */
+    }
+
+    @media (max-width: 767.98px) {
+      .cart-item-image {
+        max-width: 100%; /* Allow image to take full width on small screens */
+        max-height: 200px; /* Limit height on small screens */
+        margin-bottom: 1rem;
+      }
+      .cart-item .row > [class*="col-"] {
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        padding-right: 0.5rem;
+      }
+      .cart-item .card-body {
+        padding-top: 0; /* Reduce top padding in card body on small screens */
+      }
+       /* Adjust sticky top for smaller screens if needed */
+      .cart-summary.sticky-top {
+        /* top: 20px; Reset or adjust as needed */
+        position: static; /* Disable sticky on small screens */
+      }
+      body {
+        padding-top: 56px; /* Ensure padding matches navbar height */
+      }
+    }
+
+    .cart-item-title {
+      font-size: 1.1rem; /* Slightly smaller title */
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .cart-item-price {
+      font-size: 1.1rem;
+    }
+
+    /* Quantity Selector Adjustments */
+    .quantity-selector {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center; 
+      width: fit-content; 
+    }
+    
+    .quantity-selector .form-control {
+      flex: 0 1 60px; /* Your increased width */
+      min-width: 60px;
+    }
+    
+    .quantity-selector .btn {
+      width: 38px; /* Keep your fixed button size */
+      flex-shrink: 0; /* Prevent buttons from shrinking */
+    }
+
+    /* Action Buttons */
+    .cart-item-actions .btn {
+      font-size: 1rem; /* Slightly smaller button text */
+    }
+
+    /* Cart Summary */
+    .cart-summary {
+      border: 1px solid var(--border-light);
+    }
+
+    .summary-row span {
+      color: var(--text-medium);
+    }
+    .summary-row span:last-child {
+      color: var(--text-dark); /* Make values slightly darker */
+    }
+
+    .summary-total span {
+      color: var(--text-dark);
+    }
+
+    .checkout-btn:hover {
+      transform: translateY(-1px); /* Subtle lift effect */
+    }
+
+    /* Continue Shopping Link */
+    .continue-shopping {
+      color: var(--primary-color);
+      transition: color 0.15s ease;
+    }
+
+    .continue-shopping:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Saved Items */
+    .saved-items {
+       border: 1px solid var(--border-light);
+    }
+
+    .saved-item { /* Style for items moved to saved list */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .saved-item:last-child {
+      border-bottom: none;
+    }
+    .saved-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 0.25rem;
+      margin-right: 1rem;
+    }
+    .saved-item-details {
+      flex-grow: 1;
+    }
+    .saved-item-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+    .saved-item-price {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--success-color);
+    }
+    .saved-item-actions .btn {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    /* Empty Cart State */
+    .empty-cart {
+       border: 1px solid var(--border-light);
+    }
+    .empty-cart p { /* Specific text adjustment for books */
+        color: var(--text-medium); /* Slightly darker than default muted */
+    }
+
+
+    /* Navbar cart badge adjustments */
+    #cart-item-count-badge {
+      font-size: 0.65em; /* Make badge text slightly smaller */
+      padding: 0.3em 0.5em; /* Adjust padding */
+    }
+    #cart-item-count-badge.hidden-badge {
+        display: none; /* Class to hide badge when count is 0 */
+    }

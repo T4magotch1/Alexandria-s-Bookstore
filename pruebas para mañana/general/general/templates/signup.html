@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up Form</title>
+  <link rel="stylesheet" href="../static/css/signup.css">
+</head>
+<body>
+  <div class="main">
+    <div class="signup">
+      <!-- Se agrega el atributo action para enviar datos al backend -->
+      <form action="/signup" method="POST">
+        <label>Sign up</label>
+        <input type="text" name="firstname" placeholder="Nombre" required>
+        <input type="text" name="lastname" placeholder="Apellido" required>
+        <input type="text" name="username" placeholder="Nombre de usuario" required>
+        <input type="date" name="birthdate" placeholder="Fecha de nacimiento" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="password" name="pswd" placeholder="Contraseña" required>
+        <input type="password" name="confirm_pswd" placeholder="Validar contraseña" required>
+        <button type="submit">Sign up</button>
+        <!-- Ruta corregida para el enlace de login -->
+        <p class="link">¿Ya tienes cuenta? <a href="../templates/login.html">Inicia sesión aquí</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
