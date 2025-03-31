@@ -6,6 +6,7 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
+
 const elementosProtegidos = document.getElementsByClassName('card-img-top'); // Es un contador de cuantos y que datos tiene cada iteracion de la clase 'card-img-top'
 
     // Itera sobre la colección de elementos
