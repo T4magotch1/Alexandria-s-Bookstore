@@ -3,6 +3,9 @@ import mysql.connector
 from mysql.connector import Error
 from cryptography.fernet import Fernet  # Cifrado
 from datetime import datetime, timedelta
+import random
+from funciones.carrito import *
+from funciones.libro import *
 
 
 # Base de datos
@@ -486,7 +489,13 @@ def signup():
 
 @app.route('/pagina_inicio')
 def pagina_inicio():
-    return render_template('pagina_inicio.html')
+    nombre_usuario = user_data['email']  # Obtener el nombre de usuario de la variable global
+    #print(user_data['email'])
+    if nombre_usuario is None:
+        return render_template('pagina_inicio.html',nombre="No hay usuario")
+    else:
+        return render_template('pagina_inicio.html',nombre=nombre_usuario)
+
 
 
 @app.route('/carrito_de_compra')
@@ -527,6 +536,19 @@ def pagina_atlas():
 @app.route('/pagina_todo')
 def pagina_todo():
     return render_template('pagina_todo.html')
+
+
+#resultados de la busqueda
+@app.route('/buscar_libro',methods=['GET', 'POST'])
+def buscar_libro():
+    n_libros_coincidencias = 0
+    palabra_buscada = request.args.get('busqueda')
+    #busca coincidencias
+    coincidencias = buscar_por_titulo(palabra_buscada) #Llama a la funcion de busqueda
+    resultados = datos_utiles(coincidencias)
+
+    return render_template('buscar_libro.html',libro2=resultados)
+
 
 
 if __name__ == '__main__':
