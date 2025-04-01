@@ -28,9 +28,9 @@ def crear_tabla_compras():
         cursor = conexion.cursor()
         sql = """
         CREATE TABLE IF NOT EXISTS compras (
-            id_compra INT AUTO_INCREMENT PRIMARY KEY,
-            id_usuario INT NOT NULL,
-            id_libro INT NOT NULL,
+            id_compra VARCHAR(255),
+            id_usuario VARCHAR(255) NOT NULL,
+            id_libro VARCHAR(255) NOT NULL,
             fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
             FOREIGN KEY (id_libro) REFERENCES libros(id_libro)
@@ -38,7 +38,28 @@ def crear_tabla_compras():
         """
         cursor.execute(sql)
         conexion.commit()
+        cursor.close()
         conexion.close()
+
+
+def insertar_compras(id_usuario, id_libro):
+    conexion = crear_conexion()  # Llama a tu función para establecer la conexión
+    if conexion:
+        try:
+            cursor = conexion.cursor()
+
+            # Consulta SQL para insertar datos en la tabla compras
+            sql = "INSERT INTO compras (id_compra, id_usuario, id_libro) VALUES (%s, %s, %s)"
+            valores = (obtener_id('compras'), id_usuario, id_libro)
+
+            cursor.execute(sql, valores)  # Ejecuta la consulta
+            conexion.commit()  # Guarda los cambios
+            cursor.close()
+            conexion.close()
+            print("¡Datos cargados en la tabla 'compras' con éxito!")
+
+        except Exception as error:
+            print(f"Error al cargar los datos: {error}")
 
 
 def crear_base_datos(usuario, clave):
@@ -91,6 +112,8 @@ def obtener_id(tabla):
             columna = 'id_libro'
         elif tabla == 'suscripciones':
             columna = 'id_usuario'
+        elif tabla == 'compras':
+            columna = 'id_compra'
 
         try:
             cursor = conexion.cursor()
