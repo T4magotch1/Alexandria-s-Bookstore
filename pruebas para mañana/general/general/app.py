@@ -32,8 +32,8 @@ def crear_tabla_compras():
             id_usuario VARCHAR(255) NOT NULL,
             id_libro VARCHAR(255) NOT NULL,
             fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
-            FOREIGN KEY (id_libro) REFERENCES libros(id_libro)
+            FOREIGN KEY (id_usuario) REFERENCES suscripciones(id_usuario),
+            FOREIGN KEY (id_libro) REFERENCES bookshelf(id_libro)
         );
         """
         cursor.execute(sql)
