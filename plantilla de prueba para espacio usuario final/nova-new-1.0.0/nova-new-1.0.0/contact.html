@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="google" value="notranslate">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Contact - Nova Bootstrap Template</title>
+  <title>Ajustes usuario</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -41,38 +42,19 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="" class="logo d-flex align-items-center"> <!-- Cambiar esta href por la de nosotros de inicio -->
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Nova</h1>
+        <h1 class="sitename">Alexandria's Bookstore</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home<br></a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="index.html">Inicio<br></a></li> <!-- coneccion a pag inicio -->
+          <li><a href="portfolio.html" > Mi Biblioteca</a></li> <!-- coneccion a la pag de lib -->
+          <li><a href="contact.html" class="active">Ajustes</a></li> <!-- Los mismos ajustes -->
+          <li><a href="lista de deseos.html">Lista de Deseos</a></li> <!-- Coneccion a lista de deseos -->
+          <li><a href="index.html">Cerrar Sesion<br></a></li> <!-- Una de cerrar sesion -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -83,14 +65,10 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/contact-page-title-bg.jpg);">
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(/* aqui una img puede ser la misma de inicio o sola, el color no queda mal */);">
       <div class="container">
-        <h1>Contact</h1>
+        <h1>Ajustes</h1>
         <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Contact</li>
-          </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
@@ -104,55 +82,52 @@
 
           <div class="col-lg-5">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <i class="bi bi-person flex-shrink-0"></i>
               <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h3>Usuario</h3>
+                <p>Aqui datos del usuario. </p> <!-- Datos tomados de la DB despues de login -->
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <h3>Telefono</h3>
+                <p>+58 999 999 9999</p> <!-- Datos tomados de la DB despues de login -->
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <h3>Correo Electronico</h3>
+                <p>CorreoEjemplo@gmail.com</p> <!-- Datos tomados de la DB despues de login -->
               </div>
             </div><!-- End Info Item -->
 
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+              <!-- esto puede cambiar a operacion para DB para insertar y cambiar por los datos anteriores -->
+              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="name" class="form-control" placeholder="Cambiar nombre de usuario" > <!-- Input para cambiar nombre de usuario -->
                 </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <div class="col-md-7">
+                  <input type="email" class="form-control" name="email" placeholder="Cambiar correo electronico" > <!-- Input para cambiar correo electronico -->
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <input type="text" class="form-control" id="prefijoTelefono" name="tlf" placeholder="Cambiar numero de tlf" value="+58" > <!-- Input para cambiar numero de tlf -->
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
+                  <!--  <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div> -->
 
                   <button type="submit">Send Message</button>
                 </div>
@@ -171,65 +146,20 @@
 
   <footer id="footer" class="footer light-background">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Nova</span>
-            </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-            <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
+    
 
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Alexandria's Bookstore</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+        
       </div>
     </div>
 
@@ -252,6 +182,26 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- script para prefijo de tlf -->
+  <script>
+    const inputPrefijo = document.getElementById('prefijoTelefono');
+    const valorInicial = "+58";
+  
+    inputPrefijo.addEventListener('input', function() {
+      if (this.value === "+5") {
+        this.value = valorInicial;
+      }
+    });
+  
+    // Opcional: Para manejar el caso de selección y borrado completo
+    inputPrefijo.addEventListener('blur', function() {
+      if (this.value === "") {
+        this.value = valorInicial;
+      }
+    });
+  </script>
+  
 
 </body>
 
