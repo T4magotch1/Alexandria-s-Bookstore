@@ -159,6 +159,8 @@ def crear_estante():
             fecha_de_publicacion VARCHAR(10),
             categoria VARCHAR(50),
             genero VARCHAR(50),
+            precio FLOAT,
+            recomendacion FLOAT,
             disponibilidad VARCHAR(50),
             enlace BLOB,
             PRIMARY KEY (id_libro)
@@ -169,19 +171,42 @@ def crear_estante():
 
 
 def registrar_libro(titulo, editorial, edicion, editor, autor, idioma, fecha_de_publicacion, categoria, genero,
-                  disponibilidad, enlace):
+                    precio, recomendacion, disponibilidad, enlace):
+
     conexion = crear_conexion()
     if conexion:
-        cursor = conexion.cursor()
-        sql = f"""
-        INSERT INTO bookshelf 
-        (id_libro, titulo, editorial, edicion, editor, autor, idioma, fecha_de_publicacion, categoria, genero, disponibilidad, enlace) 
-        VALUES ('{obtener_id('bookshelf')}','{titulo}', '{editorial}', '{edicion}', '{editor}', '{autor}', '{idioma}', '{fecha_de_publicacion}', '{categoria}', '{genero}', '{disponibilidad}', %s)
-        """
-        enlace_cifrado = cifrado(enlace)
-        cursor.execute(sql, (enlace_cifrado,))
-        conexion.commit()
-        conexion.close()
+        try:
+            cursor = conexion.cursor()
+
+            # Consulta SQL para insertar los datos
+            sql = f"""
+            INSERT INTO bookshelf 
+            (id_libro, titulo, editorial, edicion, editor, autor, idioma, fecha_de_publicacion, categoria, genero, 
+            precio, recomendacion, disponibilidad, enlace) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+
+            # Generar ID único para el libro
+            id_libro = obtener_id("bookshelf")
+
+            # Cifrar el enlace antes de insertarlo en la base de datos
+            enlace_cifrado = cifrado(enlace)
+
+            # Ejecutar la consulta con los valores
+            cursor.execute(sql, (id_libro, titulo, editorial, edicion, editor, autor, idioma, fecha_de_publicacion,
+                                 categoria, genero, precio, recomendacion, disponibilidad, enlace_cifrado))
+
+            # Confirmar los cambios en la base de datos
+            conexion.commit()
+
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+
+        finally:
+            # Cerrar la conexión
+            if conexion.is_connected():
+                cursor.close()
+                conexion.close()
 
 
 def revisar_libro(id_libro):
@@ -354,6 +379,30 @@ def verificar_correo(correo):
 
         except Exception as e:
             print(f"Error al verificar el correo: {e}")
+
+
+def buscar_por_titulo(texto_entrada):
+
+    try:
+        conexion = crear_conexion()
+        cursor = conexion.cursor()
+
+        # Consulta SQL para buscar por título
+        sql = "SELECT * FROM bookshelf WHERE titulo LIKE %s"
+        cursor.execute(sql, (f"%{texto_entrada}%",))
+        resultados = cursor.fetchall()
+
+        # Mostrar los resultados
+        for fila in resultados:
+            print(fila)
+
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+
+    finally:
+        if conexion.is_connected():
+            cursor.close()
+            conexion.close()
 
 
 # Frontend
