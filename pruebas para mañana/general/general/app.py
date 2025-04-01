@@ -219,6 +219,19 @@ def revisar_libro(id_libro):
         return resultado is not None
 
 
+def informacion_libro(id_libro):
+    conexion = crear_conexion()
+    if conexion:
+        cursor = conexion.cursor()
+        sql = f"SELECT * FROM bookshelf WHERE id_libro = '{id_libro}'"
+        cursor.execute(sql)
+        resultado = cursor.fetchone()
+        if resultado:
+            return resultado
+        else:
+            return False
+
+
 def elimina_libro(id_libro):
     conexion = crear_conexion()
     if conexion:
