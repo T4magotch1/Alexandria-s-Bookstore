@@ -422,6 +422,21 @@ def pagina_novela():
     return render_template('pagina_novela.html')
 
 
+@app.route('/pagina_partituras')
+def pagina_partituras():
+    return render_template('pagina_partituras.html')
+
+
+@app.route('/pagina_atlas')
+def pagina_atlas():
+    return render_template('pagina_atlas.html')
+
+
+@app.route('/pagina_todo')
+def pagina_todo():
+    return render_template('pagina_todo.html')
+
+
 if __name__ == '__main__':
     crear_base_datos('root', '')
     crear_estante()
