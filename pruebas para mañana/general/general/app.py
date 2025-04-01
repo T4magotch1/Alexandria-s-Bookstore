@@ -21,6 +21,26 @@ def crear_conexion():
         return None
 
 
+def crear_tabla_compras():
+    conexion = crear_conexion()
+    if conexion:
+
+        cursor = conexion.cursor()
+        sql = """
+        CREATE TABLE IF NOT EXISTS compras (
+            id_compra INT AUTO_INCREMENT PRIMARY KEY,
+            id_usuario INT NOT NULL,
+            id_libro INT NOT NULL,
+            fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+            FOREIGN KEY (id_libro) REFERENCES libros(id_libro)
+        );
+        """
+        cursor.execute(sql)
+        conexion.commit()
+        conexion.close()
+
+
 def crear_base_datos(usuario, clave):
     try:
         # Conexión al servidor MySQL
@@ -364,10 +384,12 @@ def signup():
 
             # Validación de campos vacíos
             if not all([firstname, lastname, username, birthdate, email, password, confirm_password]):
+                print('Faltaron datos.')
                 return render_template('signup.html')
 
             # Validación de contraseña (deben coincidir)
             if password != confirm_password:
+                print('Las claves no coinciden.')
                 return render_template('signup.html')
 
             # Validación básica: revisa si el nombre de usuario o correo ya están registrados
@@ -375,12 +397,10 @@ def signup():
             usuario1, clave1 = verificar_correo(email)
 
             if usuario is not None or usuario1 is not None:
+                print('Ya existe el usuario.')
                 return render_template('signup.html')
 
-            # Arreglo del formato de la fecha
-
-
-            # Registro del usuario (almacenar en base de datos)
+            print(f'La fecha es: {birthdate}')
             registrar_suscripcion(username, firstname, lastname, password, '0', birthdate, email)
             return redirect(url_for('home'))  # Redirigir al login después del registro
 
@@ -441,4 +461,5 @@ if __name__ == '__main__':
     crear_base_datos('root', '')
     crear_estante()
     crear_tabla_usuarios()
+    crear_tabla_compras()
     app.run(debug=True)
