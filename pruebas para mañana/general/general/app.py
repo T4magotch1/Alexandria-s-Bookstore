@@ -405,6 +405,23 @@ def buscar_por_titulo(texto_entrada):
             conexion.close()
 
 
+def id_compras(id_usuario):
+    conexion = crear_conexion()
+    if conexion:
+
+        sql = """
+        SELECT id_libro FROM compras WHERE id_usuario = %s
+        """
+
+        cursor = conexion.cursor()
+        cursor.execute(sql, (id_usuario,))
+        resultados = cursor.fetchall()
+
+        conexion.close()
+
+        return resultados
+
+
 # Frontend
 app = Flask(__name__)
 user_data = {'email': None, 'password': None}
@@ -483,7 +500,6 @@ def signup():
     return render_template('signup.html')
 
 
-
 @app.route('/pagina_inicio')
 def pagina_inicio():
     return render_template('pagina_inicio.html')
@@ -527,6 +543,21 @@ def pagina_atlas():
 @app.route('/pagina_todo')
 def pagina_todo():
     return render_template('pagina_todo.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/lista_de_deseos')
+def lista_de_deseos():
+    return render_template('lista_de_deseos.html')
+
+
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html')
 
 
 if __name__ == '__main__':
